@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <title>Tabla</title>
+</head>
+<body>
+   <table>
+     <h3>Turno de <var id="turno">X</var></h3>
+      <tbody>
+        <tr>
+          <td id="pos_1_1" onclick="turno(id)"></td>
+          <td id="pos_1_2" onclick="turno(id)"></td>
+          <td id="pos_1_3" onclick="turno(id)"></td>
+        </tr>
+        <tr>
+          <td id="pos_2_1" onclick="turno(id)"></td>
+          <td id="pos_2_2" onclick="turno(id)"></td>
+          <td id="pos_2_3" onclick="turno(id)"></td>
+        </tr>
+        <tr>
+          <td id="pos_3_1" onclick="turno(id)"></td>
+          <td id="pos_3_2" onclick="turno(id)"></td>
+          <td id="pos_3_3" onclick="turno(id)"></td>
+        </tr>
+      </tbody>
+    </table>
+   </body>
+   <script>
+     let flag = true
+     let title = document.getElementById("turno")
+
+     function turno(id) {
+      console.log (id)
+      let pos = document.getElementById(id)
+      if (flag) {
+        localStorage.setItem(id, "X")
+        pos.textContent= localStorage.getItem(id)
+        title.textContent = "O"
+      } else{
+        localStorage.setItem(id, "O")
+        pos.textContent=localStorage.getItem(id)
+        title.textContent = "X"
+      }
+      flag = !flag
+
+     }
+   </script>
+</html>
