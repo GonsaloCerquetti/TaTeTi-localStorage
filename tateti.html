@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="style.css">
-   <title>Tabla</title>
-</head>
-<body>
-   <table>
-     <h3>Turno de <var id="turno">X</var></h3>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Tabla</title>
+  </head>
+  <body>
+    <table>
+      <h3>Turno de <var id="turno">X</var></h3>
       <tbody>
         <tr>
           <td id="pos_1_1" onclick="turno(id)"></td>
@@ -27,25 +27,32 @@
         </tr>
       </tbody>
     </table>
-   </body>
-   <script>
-     let flag = true
-     let title = document.getElementById("turno")
+  </body>
+  <script>
+    let flag = true;
+    let title = document.getElementById("turno");
 
-     function turno(id) {
-      console.log (id)
-      let pos = document.getElementById(id)
-      if (flag) {
-        localStorage.setItem(id, "X")
-        pos.textContent= localStorage.getItem(id)
-        title.textContent = "O"
-      } else{
-        localStorage.setItem(id, "O")
-        pos.textContent=localStorage.getItem(id)
-        title.textContent = "X"
+    for (let i = 1; i <= 3; i++) {
+      for (let j = 1; j <= 3; j++) {
+        console.log(`pos_${i}_${j}`);
+        let a = document.getElementById(`pos_${i}_${j}`);
+        a.textContent = localStorage.getItem(`pos_${i}_${j}`);
       }
-      flag = !flag
+    }
 
-     }
-   </script>
+    function turno(id) {
+      //console.log (id)
+      let pos = document.getElementById(id);
+      if (flag) {
+        localStorage.setItem(id, "X");
+        pos.textContent = localStorage.getItem(id);
+        title.textContent = "O";
+      } else {
+        localStorage.setItem(id, "O");
+        pos.textContent = localStorage.getItem(id);
+        title.textContent = "X";
+      }
+      flag = !flag;
+    }
+  </script>
 </html>
